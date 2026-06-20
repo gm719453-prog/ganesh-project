@@ -1,0 +1,89 @@
+<div class="min-h-screen flex flex-col transition-colors duration-300 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+  <!-- Navbar -->
+  <nav class="fixed w-full z-50 glass dark:glass-dark border-b border-white/20 dark:border-slate-800 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo/Brand -->
+        <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" routerLink="/">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
+            <span class="text-white font-bold text-xl">AI</span>
+          </div>
+          <span class="font-bold text-xl tracking-tight text-slate-900 dark:text-white hidden sm:block">
+            AI & Data Science
+          </span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-1">
+          <a routerLink="/" routerLinkActive="bg-blue-50 dark:bg-slate-900 text-blue-600 dark:text-blue-400" [routerLinkActiveOptions]="{exact: true}" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">Home</a>
+          <a routerLink="/subjects" routerLinkActive="bg-blue-50 dark:bg-slate-900 text-blue-600 dark:text-blue-400" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">Subjects (Sem 5)</a>
+          <a routerLink="/courses" routerLinkActive="bg-blue-50 dark:bg-slate-900 text-blue-600 dark:text-blue-400" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">Courses</a>
+          <a routerLink="/contact" routerLinkActive="bg-blue-50 dark:bg-slate-900 text-blue-600 dark:text-blue-400" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">Contact</a>
+          <a routerLink="/admin" routerLinkActive="bg-blue-50 dark:bg-slate-900 text-blue-600 dark:text-blue-400" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">Admin</a>
+          
+          <div class="h-6 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
+          
+          <button (click)="toggleTheme()" class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all" aria-label="Toggle Theme">
+            <svg *ngIf="!isDarkMode" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+            <svg *ngIf="isDarkMode" class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </button>
+          
+          <a routerLink="/login" class="ml-4 px-6 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5 transition-all">
+            Student Login
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-grow pt-20">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="col-span-1 md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-purple-600 flex items-center justify-center">
+              <span class="text-white font-bold text-sm">AI</span>
+            </div>
+            <span class="font-bold text-lg text-slate-900 dark:text-white">AI & Data Science</span>
+          </div>
+          <p class="text-slate-500 dark:text-slate-400 text-sm max-w-sm">
+            Empowering the next generation of data scientists and AI engineers with cutting-edge curriculum and practical knowledge.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-slate-900 dark:text-white mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+            <li><a routerLink="/" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a></li>
+            <li><a routerLink="/subjects" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Semester 5 Subjects</a></li>
+            <li><a routerLink="/courses" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Courses</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-slate-900 dark:text-white mb-4">Contact</h3>
+          <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+            <li>Email: aids&#64;college.edu</li>
+            <li>Phone: +1 234 567 890</li>
+            <li>Location: Block A, Tech Campus</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-slate-200 dark:border-slate-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 dark:text-slate-400">
+        <p>&copy; 2026 AI & DS Department. All rights reserved.</p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="#" class="hover:text-slate-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-900 dark:hover:text-white transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
